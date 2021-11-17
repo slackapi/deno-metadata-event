@@ -9,7 +9,7 @@ This sample project shows how to send and receive message metadata events.
 Create a new project using this as repo as a template.
 
 ```bash
-slack create -t slackapi/future-metadata-event 
+slack create -t slackapi/deno-metadata-event 
 ```
 
 You must update the Slack Channel ID for the `ReceiveMetadataEvent` trigger:
