@@ -6,13 +6,16 @@ export const ReceiveMetadataEventWorkflow = DefineWorkflow(
     title: "Receives and responds to a metadata event",
     description: "Receives a metadata event and sends a message in response",
     input_parameters: {
-      metadata: {
-        type: Schema.types.object,
-        description: "Custom message metadata",
-      },
-      channel_id: {
-        type: Schema.slack.types.channel_id,
-        description: "Channel to send the message",
+      required: ["metadata", "channel_id"],
+      properties: {
+        metadata: {
+          type: Schema.types.object,
+          description: "Custom message metadata",
+        },
+        channel_id: {
+          type: Schema.slack.types.channel_id,
+          description: "Channel to send the message",
+        },
       },
     },
   },

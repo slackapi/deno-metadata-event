@@ -7,21 +7,24 @@ export const SendMetadataEventWorkflow = DefineWorkflow(
     title: "Send a message with metadata",
     description: "Send a message with custom metadata",
     input_parameters: {
-      message: {
-        type: Schema.types.string,
-        description: "Message to send",
-      },
-      secret: {
-        type: Schema.types.string,
-        description: "Secret message included as metadata",
-      },
-      channel_id: {
-        type: Schema.slack.types.channel_id,
-        description: "Channel to send the message",
-      },
-      user_id: {
-        type: Schema.slack.types.user_id,
-        description: "User who created the message",
+      required: ["message", "secret", "channel_id", "user_id"],
+      properties: {
+        message: {
+          type: Schema.types.string,
+          description: "Message to send",
+        },
+        secret: {
+          type: Schema.types.string,
+          description: "Secret message included as metadata",
+        },
+        channel_id: {
+          type: Schema.slack.types.channel_id,
+          description: "Channel to send the message",
+        },
+        user_id: {
+          type: Schema.slack.types.user_id,
+          description: "User who created the message",
+        },
       },
     },
   },

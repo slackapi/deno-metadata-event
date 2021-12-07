@@ -9,27 +9,33 @@ export const SendMetadataEventFunction = DefineFunction(
     title: "Send a message with metadata",
     description: "Sends a message with a event metadata into a channel",
     input_parameters: {
-      message: {
-        type: Schema.types.string,
-        description: "Message to send",
-      },
-      secret: {
-        type: Schema.types.string,
-        description: "Secret message included as metadata",
-      },
-      channel_id: {
-        type: Schema.slack.types.channel_id,
-        description: "Channel to send the message",
-      },
-      user_id: {
-        type: Schema.slack.types.user_id,
-        description: "User included as metadata",
+      required: ["message", "secret", "channel_id", "user_id"],
+      properties: {
+        message: {
+          type: Schema.types.string,
+          description: "Message to send",
+        },
+        secret: {
+          type: Schema.types.string,
+          description: "Secret message included as metadata",
+        },
+        channel_id: {
+          type: Schema.slack.types.channel_id,
+          description: "Channel to send the message",
+        },
+        user_id: {
+          type: Schema.slack.types.user_id,
+          description: "User included as metadata",
+        },
       },
     },
     output_parameters: {
-      ok: {
-        type: Schema.types.boolean,
-        description: "Returns true if the message was send successfully",
+      required: ["ok"],
+      properties: {
+        ok: {
+          type: Schema.types.boolean,
+          description: "Returns true if the message was send successfully",
+        },
       },
     },
   },
